@@ -1,0 +1,105 @@
+/* CSS untuk Tampilan Profesional */
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #f8f9fa; color: #343a40; }
+header { background-color: #007bff; color: white; padding: 15px; text-align: center; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); }
+.container { max-width: 1100px; margin: 30px auto; padding: 25px; background-color: white; border-radius: 8px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.05); }
+h2 { border-bottom: 2px solid #007bff; padding-bottom: 10px; margin-bottom: 20px; color: #007bff; }
+
+/* Form Styling */
+#input-form { padding: 20px; border: 1px solid #dee2e6; border-radius: 6px; margin-bottom: 30px; }
+.form-group { margin-bottom: 15px; }
+label { display: block; font-weight: 600; margin-bottom: 5px; color: #495057; }
+input[type="text"], input[type="date"], input[type="number"], select { width: 100%; padding: 10px; border: 1px solid #ced4da; border-radius: 4px; box-sizing: border-box; }
+
+.pekerjaan-row { margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px dashed #e9ecef; }
+.action-buttons { display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px; }
+.btn { padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; font-weight: 600; transition: background-color 0.3s; }
+.btn-primary { background-color: #28a745; color: white; }
+.btn-secondary { background-color: #007bff; color: white; }
+.btn-danger { background-color: #dc3545; color: white; }
+
+/* BOQ Output Styling */
+#boq-output { margin-top: 30px; padding: 20px; border: 1px solid #dee2e6; border-radius: 6px; background-color: #fff; }
+
+/* Logo dan Header Cetak */
+.print-header { text-align: center; margin-bottom: 20px; }
+.print-header img { width: 80px; height: auto; margin-bottom: 5px; }
+.print-header p { font-size: 1.2em; font-weight: bold; margin: 0; }
+
+/* Kop Surat/Identitas Proyek */
+.kop-surat { 
+    margin-bottom: 20px;
+    font-size: 0.9em; 
+    border: 1px solid #e9ecef; 
+    padding: 10px; 
+    text-align: left;
+
+    /* 1. Hapus border, agar terlihat lebih formal seperti paragraf */
+    border: none; 
+    padding: 0;
+}
+
+.kop-surat p { 
+    margin: 6px 0;
+    display: flex;
+}
+
+.kop-label { 
+    font-weight: bold; 
+    width: 200px; 
+    display: inline-block;
+
+    /* 2. Tambahkan titik dua (:) dan padding/margin */
+    padding-right: 10px; 
+    flex-shrink: 0; /* Pastikan label tidak menciut */
+    position: relative;
+}
+
+/* 3. Menambahkan Titik Dua (:) secara Otomatis */
+.kop-label::after {
+    content: ":";
+    position: absolute;
+    right: 0;
+}
+
+/* Table Styling */
+#boq-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+#boq-table th, #boq-table td { border: 1px solid #dee2e6; padding: 10px; text-align: left; }
+#boq-table th { background-color: #e9ecef; font-weight: 700; text-align: center; }
+
+#boq-table td:nth-child(4), /* Luas Pekerjaan */
+#boq-table td:nth-child(5), /* Harga Satuan */
+#boq-table td:nth-child(6)  /* Jumlah Harga */ { text-align: right; }
+
+.total-row td { font-weight: bold; background-color: #f1f1f1; font-size: 1.1em; }
+.total-row td:last-child { color: #dc3545; }
+.discount-row td { color: #28a745; } /* Hijau untuk diskon */
+.grand-total-row td { background-color: #007bff; color: white; font-size: 1.2em; }
+
+/* Footer Cetak */
+.print-footer { text-align: center; margin-top: 30px; border-top: 1px dashed #dee2e6; padding-top: 10px; }
+.ttd { text-align: right; margin-top: 40px; }
+.ttd p { margin: 0; font-weight: bold; }
+
+/* Bagian Terbawah Website */
+footer { background-color: #ffffff; color: rgb(0, 0, 0); text-align: center; padding: 15px 0; margin-top: 50px; }
+footer img { width: 50px; height: auto; vertical-align: middle; margin-right: 10px; }
+footer span { font-weight: bold; }
+
+/* MEDIA PRINT: Menyesuaikan tampilan untuk Cetak/Download PDF */
+@media print {
+    body { font-size: 10pt; background-color: white; }
+    .container { box-shadow: none; margin: 0; padding: 0; max-width: none; }
+    /* Menyembunyikan elemen input, header, footer, dan semua tombol saat dicetak */
+    header, #input-form, .action-buttons, footer { display: none; }
+    #boq-output { border: none; padding: 0; margin: 0; }
+    
+    /* Kop BOQ Rata Kiri */
+    .kop-surat { border: none; padding: 0; margin-bottom: 15px; font-size: 10pt; text-align: left !important; }
+
+    /* Tabel Border Penuh */
+    #boq-table th, #boq-table td { border-color: #343a40 !important; }
+
+    /* Logo & Rekapitulasi Rata Tengah */
+    .print-header { margin-bottom: 10px; }
+    .print-header p { font-size: 1em; }
+}
